@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(220, 43%, 97%);
+  --text-blue: hsl(231, 42%, 28%);
+  --text-light: hsl(220, 43%, 97%);
+  --top-blob: hsl(54, 100%, 91%);
+  --bottom-blob: hsl(210, 65%, 92%);
+  --correct: hsl(133, 46%, 71%);
+  --incorrect: hsl(360, 81%, 85%);
+  --selected: hsl(230, 61%, 90%);
+  --border: hsl(231, 42%, 90%);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  background-color: var(--background);
+}
