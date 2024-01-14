@@ -1,44 +1,52 @@
 'use client';
+import Error from '@/components/Error';
+import Loader from '@/components/Loader';
 import Question from '@/components/Question';
-import { Results } from '@/types';
+import { ApiResponse, Results } from '@/types';
 import { useState, useEffect } from 'react';
 
 function Questions() {
   const [questions, setQuestions] = useState<Results[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+  const answeredQuestions = 0;
 
-  useEffect(() => { // fix issue with next making two req's
-    fetch('https://opentdb.com/api.php?amount=5')
-      .then((response) => response.json())
-      .then((data) => {
-        setQuestions(data.results);
-        setLoading(false);
-        // console.log(data.results);
-      })
-      .catch((error) => {
+  const getQuestions = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('https://opentdb.com/api.php?amount=5');
+      const data: ApiResponse = await response.json();
+      if (!response.ok) {
         setError(true);
-        setLoading(false);
-        console.log(error);
-      });
+      }
+      console.log(data);
+      setQuestions(data.results);
+      setLoading(false);
+    } catch (error) {
+      setError(true);
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getQuestions();
   }, []);
 
   const DUMMY_QUESTIONS = [1, 2, 3, 4, 5];
 
   const checkAnswers = () => {
-    
-  }
+    if (answeredQuestions !== questions.length) {
+      return;
+    }
+  };
 
   return (
     <section className='grid gap-10 max-w-screen-md px-5 py-10 mx-auto min-h-screen'>
       {loading ? (
-        <div className='grid place-content-center font-medium text-dark'>
-          <p>Loading...</p>
-        </div>
-      ) : error ? (
-        <div className='grid place-content-center font-medium text-dark'>
-          <p>An error occured while trying to get your questions.</p>
-        </div>
+        <Loader />
+      ) : !loading && error ? (
+        <Error onClick={() => getQuestions()} />
       ) : (
         <ul className='flex flex-col gap-4'>
           {questions?.map((question, index) => (
