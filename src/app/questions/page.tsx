@@ -4,7 +4,6 @@ import Loader from '@/components/Loader';
 import Question from '@/components/Question';
 import { ApiResponse, Results } from '@/types';
 import { useState, useEffect } from 'react';
-// import { getQuestions } from './api/route';
 
 function Questions() {
   const [questions, setQuestions] = useState<Results[]>([]);
@@ -13,15 +12,6 @@ function Questions() {
   const [answeredQuestions, setAnsweredQuestions] = useState<number>(0);
   const [showResults, setShowResults] = useState<boolean>(false);
   const [correctAnswers, setCorrectAnswers] = useState<number>(0);
-
-  // getQuestions()
-  //   .then((res) => {
-  //     console.log(res)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //     setError(true);
-  //   });
 
   const getQuestions = async () => {
     setLoading(true);
