@@ -16,7 +16,11 @@ export interface QuestionProps {
   question: string;
   answer: string;
   options: string[];
-};
+  answeredQuestions: number;
+  setAnsweredQuestions: React.Dispatch<React.SetStateAction<number>>;
+  showResults: boolean;
+  setCorrectAnswers: React.Dispatch<React.SetStateAction<number>>;
+}
 
 export interface ErrorProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

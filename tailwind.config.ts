@@ -8,11 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      // backgroundImage: {
+      //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      //   'gradient-conic':
+      //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      // },
       colors: {
         correct: 'hsl(133, 46%, 71%);',
         incorrect: 'hsl(360, 81%, 85%)',
@@ -20,6 +20,7 @@ const config: Config = {
         light: 'hsl(220, 43%, 97%)',
         selected: 'hsl(230, 61%, 90%)',
         border: 'hsl(231, 42%, 90%)',
+        accent: 'hsl(264, 98%, 63%)',
       },
     },
   },

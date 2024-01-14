@@ -9,7 +9,7 @@ export default function Home() {
       </p>
       <Link
         href='/questions'
-        className='text-center text-light p-4 bg-dark rounded-xl'
+        className='text-center text-light p-4 bg-dark rounded-xl hover:text-dark hover:bg-transparent border-2 hover:border-dark transition focus-visible:outline-accent'
       >
         Start quiz
       </Link>

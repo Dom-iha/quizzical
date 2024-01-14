@@ -3,7 +3,7 @@ import { ErrorProps } from '@/types';
 
 const Error: React.FC<ErrorProps> = ({ onClick }) => {
   return (
-    <div className='flex gap-5 flex-col items-center place-content-center font-medium text-dark'>
+    <div className='flex gap-5 flex-col items-center place-content-center font-medium text-dark text-center'>
       <p>An error occured while setting your questions.</p>
       <button
         type='button'
