@@ -99,6 +99,11 @@ function Questions() {
     console.log('Submitted');
   };
 
+  const restart = () => {
+    setShowResults(false);
+    getQuestions();
+  };
+
   return (
     <section className='grid gap-10 max-w-screen-md px-5 py-10 mx-auto min-h-screen'>
       {loading ? (
@@ -135,7 +140,7 @@ function Questions() {
           <p className='text-dark font-bold'>{`You got ${correctAnswers}/${questions.length} questions right`}</p>
           <button
             type='button'
-            onClick={() => getQuestions()}
+            onClick={() => restart()}
             className='transition place-self-center text-center text-light py-2 px-6 bg-dark rounded-xl focus-visible:outline-2 focus-visible:bg-transparent focus-visible:outline-accent focus-visible:text-dark'
           >
             Play again
