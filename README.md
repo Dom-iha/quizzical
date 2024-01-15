@@ -1,11 +1,14 @@
 # Quizzical
 
-A simple quiz app that pulls questions from the [Open Trivia Database](https://opentdb.com/api_config.php) API. Users can choose the number of questions they want to answer, the category of questions and the difficulty level.
+![desktop preview](./src/assets/Home.png)
+
+## Overview
+
+A simple quiz app that pulls questions from the [Open Trivia Database](https://opentdb.com/api_config.php) API.
 
 ## Table of contents
 
 - [The challenge](#the-challenge)
-- [Screenshot](#screenshot)
 - [Links](#links)
 - [Built with](#built-with)
 - [How to use](#how-to-use)
@@ -21,13 +24,9 @@ Users should be able to:
 - Recieve validations when they try to check answers without answering all questions.
 - See the correct answers highlighted in the results page.
 
-### Screenshot
-
-![desktop preview](./src/assets/desktop-preview.jpg)
-
 ### Links
 
-- [Live Site URL](https://quizzically.vercel.app/)
+- [Quizzical](https://quizzically.vercel.app/)
 
 ### Built with
 
@@ -41,7 +40,8 @@ Users should be able to:
 
 ### Continued development
 
-Will add the option for users to configure the kind of questions they want to answer.
+- Will add the option for users to configure the kind of questions they want to answer.
+- Add a nice celebration feature if all questions are gottem right.
 
 ### How to Use
 
@@ -74,5 +74,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Author
 
 - Website - [Taqib](https://github.com/Dom-iha)
-- Twitter - [@\_Mihaq](https://twitter.com/_Mihaq)
+- Twitter - [Taqib](https://twitter.com/_Mihaq)
 - Linkedin - [Taqib](https://www.linkedin.com/in/taqib-ibrahim)
