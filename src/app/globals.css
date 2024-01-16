@@ -4,8 +4,8 @@
 
 :root {
   --background: hsl(220, 43%, 97%);
-  --text-blue: hsl(231, 42%, 28%);
-  --text-light: hsl(220, 43%, 97%);
+  --dark: hsl(231, 42%, 28%);
+  --light: hsl(220, 43%, 97%);
   --top-blob: hsl(54, 100%, 91%);
   --bottom-blob: hsl(210, 65%, 92%);
   --correct: hsl(133, 46%, 71%);
@@ -16,12 +16,30 @@
 
 /* @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: hsl(220, 43%, 97%);
+    --dark: hsl(231, 42%, 28%);
+    --light: hsl(220, 43%, 97%);
+    --top-blob: hsl(54, 100%, 91%);
+    --bottom-blob: hsl(210, 65%, 92%);
+    --correct: hsl(133, 46%, 71%);
+    --incorrect: hsl(360, 81%, 85%);
+    --selected: hsl(230, 61%, 90%);
+    --border: hsl(231, 42%, 90%);
   }
 } */
 
 body {
   background-color: var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 0.735rem;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 100vh;
+  border: 0.1rem var(--light) solid;
+  background-color: var(--dark);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--light);
 }

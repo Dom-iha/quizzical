@@ -4,6 +4,7 @@ import './globals.css';
 import Background from '@/components/Background';
 
 const inter = Inter({ subsets: ['latin'] });
+const karla = Karla({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Quizzical',
@@ -17,9 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <main>{children}</main>
-        <Background />
+      <body className={`${inter.className} ${karla.className}`}>
+        <main className='relative'>
+          {children}
+          <Background />
+        </main>
       </body>
     </html>
   );
