@@ -7,12 +7,15 @@ const Question: React.FC<QuestionProps> = ({
   options,
   answer,
   showResults,
+  answeredQuestions,
   setAnsweredQuestions,
   setCorrectAnswers,
 }) => {
   const [selected, setSelected] = useState<string>();
   const [correctOption, setCorrectOption] = useState(answer);
   const [totalOptions, setTotalOptions] = useState<string[]>();
+  const [correctAnswerSelected, setCorrectAnswerSelected] = useState(false);
+  const [pastQuestions, setPastQuestions] = useState<string[]>([])
 
   useEffect(() => {
     const initialOptions = [...options, answer]; // create a complete options array by copying the original and adding the answer to the array
@@ -27,27 +30,38 @@ const Question: React.FC<QuestionProps> = ({
     sortOptions();
   }, [answer, options]);
 
-  const selectOption = (selectedOption: string) => {
+  const selectOption = (selectedOption: string, questionBeingAnswered: string) => {
+    const hasBeenSelectedBefore = pastQuestions.includes(questionBeingAnswered);
     setSelected(selectedOption);
-    setAnsweredQuestions((prevState) => prevState + 1);
-    if (selectedOption === correctOption) {
+    
+    // console.log(questionBeingAnswered)
+    
+    
+    if (!hasBeenSelectedBefore) {
+      setAnsweredQuestions((prevState) => prevState + 1);
+      setPastQuestions(prevPQ => [...prevPQ, questionBeingAnswered])
+      // setCorrectAnswerSelected(false); // Reset the flag when moving to a new question
+    }
+
+    if (selectedOption === correctOption && !correctAnswerSelected) {
       setCorrectAnswers((prevState) => prevState + 1);
+      // setCorrectAnswerSelected(true); // Set the flag to true when the correct answer is selected
     }
   };
 
-  
 
   return (
     <li className='text-darkBlue border-b-2 border-border pb-5'>
       <div className='flex flex-col gap-3'>
-        <p className='text-dark font-bold text-lg md:text-xl'>{decode(question)}</p>
+        <p className='text-dark font-bold text-lg md:text-xl'>
+          {decode(question)}
+        </p>
         <ul className='flex gap-4 flex-wrap max-md:text-sm'>
           {totalOptions?.map((option: string, index: number) => (
             <li className='text-darkBlue' key={index}>
               <button
                 type='button'
-                onClick={() => selectOption(option)}
-                disabled={showResults}
+                onClick={() => selectOption(option, question)}
                 className={`${
                   !showResults && selected === option ? 'bg-selected' : ''
                 } ${

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const Snackbar = ({
   message,
@@ -12,7 +12,7 @@ const Snackbar = ({
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       close();
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timeoutId);
   }, [close]);
