@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Links
 
-- [Quizzical](https://quizzically.vercel.app/)
+- [Visit Site](https://quizzicallyy.vercel.app/)
 
 ### Built with
 
