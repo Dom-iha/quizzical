@@ -35,60 +35,9 @@ function Questions() {
     }
   };
 
-  // useEffect(() => {
-  //   getQuestions();
-  // }, []);
-
-  const DUMMY_QUESTIONS = [
-    {
-      type: 'multiple',
-      difficulty: 'easy',
-      category: 'Entertainment: Comics',
-      question:
-        'In &quot;Homestuck&quot; what is Dave Strider&#039;s guardian?',
-      correct_answer: 'Bro',
-      incorrect_answers: ['Becquerel', 'Doc Scratch', 'Halley'],
-    },
-    {
-      type: 'multiple',
-      difficulty: 'hard',
-      category: 'Entertainment: Musicals &amp; Theatres',
-      question:
-        'Which of these plays was famously first performed posthumously after the playwright committed suicide?',
-      correct_answer: '4.48 Psychosis',
-      incorrect_answers: [
-        'Hamilton',
-        'Much Ado About Nothing',
-        'The Birthday Party',
-      ],
-    },
-    {
-      type: 'multiple',
-      difficulty: 'medium',
-      category: 'History',
-      question:
-        'Who was the first president born in the independent United States?',
-      correct_answer: 'Martin Van Buren',
-      incorrect_answers: ['John Adams', 'George Washington', 'James Monroe '],
-    },
-    {
-      type: 'multiple',
-      difficulty: 'medium',
-      category: 'Entertainment: Video Games',
-      question:
-        'What is the name of the virus in &quot;Metal Gear Solid 1&quot;?',
-      correct_answer: 'FOXDIE',
-      incorrect_answers: ['FOXENGINE', 'FOXALIVE', 'FOXKILL'],
-    },
-    {
-      type: 'boolean',
-      difficulty: 'easy',
-      category: 'Geography',
-      question: 'Alaska is the largest state in the United States.',
-      correct_answer: 'True',
-      incorrect_answers: ['False'],
-    },
-  ];
+  useEffect(() => {
+    getQuestions();
+  }, []);
 
   const closeSnackbar = () => {
     setShowMessage(false);
@@ -98,14 +47,11 @@ function Questions() {
     }, 300);
   };
 
-  // console.log('Answered: ' + answeredQuestions);
-  // console.log('Correct: ' +correctAnswers)
-
   const checkAnswers = () => {
     setChecking(true);
 
     setTimeout(() => {
-      if (answeredQuestions !== DUMMY_QUESTIONS.length) {
+      if (answeredQuestions !== questions.length) {
         setShowMessage(true);
         return;
       }
@@ -119,7 +65,7 @@ function Questions() {
     setCorrectAnswers(0);
     setShowResults((prevState) => !prevState);
 
-    // getQuestions();
+    getQuestions();
   };
 
   return (
@@ -131,7 +77,7 @@ function Questions() {
           <Error onClick={() => getQuestions()} />
         ) : (
           <ul className='flex flex-col gap-4'>
-            {DUMMY_QUESTIONS?.map((question, index) => (
+            {questions?.map((question, index) => (
               <Question
                 key={index}
                 question={question.question}
@@ -158,7 +104,7 @@ function Questions() {
         )}
         {showResults && (
           <div className='flex flex-wrap gap-4 items-center justify-center'>
-            <p className='text-darkBlue font-bold'>{`You got ${correctAnswers}/${DUMMY_QUESTIONS.length} questions right`}</p>
+            <p className='text-darkBlue font-bold'>{`You got ${correctAnswers}/${questions.length} questions right`}</p>
             <button
               type='button'
               onClick={() => restart()}
@@ -172,7 +118,7 @@ function Questions() {
       {checking && (
         <Snackbar
           message={`Answer all questions: ${
-            DUMMY_QUESTIONS.length - answeredQuestions
+            questions.length - answeredQuestions
           } question${answeredQuestions < 4 ? 's' : ''} left`}
           close={closeSnackbar}
           show={showMessage}

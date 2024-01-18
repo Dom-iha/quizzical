@@ -31,17 +31,15 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [Next.js](https://nextjs.org/docs) - React Framework
 - Typescript
+- [TailwindCSS](https://tailwindcss.com/docs)
 
 ### Continued development
 
-- Will add the option for users to configure the kind of questions they want to answer.
-- Add a nice celebration feature if all questions are gottem right.
+- Add the option for users to configure the kind of questions they want to answer.
+- Add a nice celebration feature if all questions are gotten right.
 
 ### How to Use
 

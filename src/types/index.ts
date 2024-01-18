@@ -25,3 +25,8 @@ export interface QuestionProps {
 export interface ErrorProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+export type AnswerStatus = {
+  Q: string;
+  correct: boolean;
+}
